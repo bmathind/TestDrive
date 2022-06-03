@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
 Built-By: bmath
 Build-Jdk: 11.0.15
+Implementation-Title: TestDrive
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.baban
+Implementation-URL: http://www.example.com
 Created-By: Maven Integration for Eclipse
 
