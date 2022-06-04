@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DriverController {
 	
-	@GetMapping("/home-world")
+	@GetMapping("/hello")
 	public String retrieveHomePage() {
-		return "Hello Baban!";
+		return "Hello Baban! I am outside the package";
 	}
 }
