@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.baban.dto.EmployeeDetails;
 import com.baban.entity.EmployeeDetailsEntity;
+import com.baban.exception.RecordNotFoundException;
 import com.baban.repository.EmployeeDetailsRepository;
 
 @Service
@@ -15,7 +16,7 @@ public class DriverManager {
 	private EmployeeDetailsResponseParser parseEmployeeDetails;
 	@Autowired
 	private EmployeeDetailsRequestBuilder createEmployeeDetails;
-	
+
 	public String retrieveHomePage() {
 		return "success";
 	}
@@ -27,13 +28,11 @@ public class DriverManager {
 		return "Successfully Created";
 	}
 
-	
-
 	public EmployeeDetails retrieveEmployee(Integer empId) {
 		EmployeeDetailsEntity empDBObject = employeeDetailsRepository.findEmployeedById(empId);
 		if (null != empDBObject)
 			return parseEmployeeDetails.parseEmployeeDetails(empDBObject);
-		return null;
+		else
+			throw new RecordNotFoundException("Employee ID doesn't exists");
 	}
-
 }
